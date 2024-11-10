@@ -1,6 +1,6 @@
 package model;
 
-public class ResidentalProperty extends Property{
+public class ResidentalProperty extends Property {
 	// attributes: information of the property
 	// e.g. the number of bedrooms, garden availability, or pet-friendliness, etc.
 
