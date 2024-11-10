@@ -5,7 +5,7 @@ import java.util.Date;
 public class RentalAgreement {
 	private int id;
 
-	// People who rent the property
+	// Persons who rent the property
 	private Tenant tenant;
 	private Tenant subTenant;
 
@@ -68,6 +68,7 @@ public class RentalAgreement {
 		setProperty(property);
 		setStatus(status);
 	}
+
 
 	// Getters and Setters
 	public int getId() {
