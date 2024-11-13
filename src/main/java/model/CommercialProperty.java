@@ -17,8 +17,8 @@ public class CommercialProperty extends Property {
 		this.squareFootage = 0;
 	}
 
-	public CommercialProperty(String propertyId, String address, PropertyStatus status, Person owner,String businessType, int parkingSpaces, int squareFootage) {
-		super(propertyId, address, status, owner);
+	public CommercialProperty(int propertyId, String address, PropertyStatus status, int ownerId, String businessType, int parkingSpaces, int squareFootage) {
+		super(propertyId, address, status, ownerId, new ArrayList<Integer>());
 		this.businessType = businessType;
 		this.parkingSpaces = parkingSpaces;
 		this.squareFootage = squareFootage;

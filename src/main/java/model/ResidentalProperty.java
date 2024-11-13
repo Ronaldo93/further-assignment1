@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class ResidentalProperty extends Property {
 	// attributes: information of the property
 	// e.g. the number of bedrooms, garden availability, or pet-friendliness, etc.
@@ -15,8 +17,8 @@ public class ResidentalProperty extends Property {
 		this.isPetFriendly = false;
 	}
 
-	public ResidentalProperty(String propertyId, String address, PropertyStatus status, Person owner, int numberOfBedrooms, boolean hasGarden, boolean isPetFriendly) {
-		super(propertyId, address, status, owner);
+	public ResidentalProperty(int propertyId, java.lang.String address, PropertyStatus status, int owner, int numberOfBedrooms, boolean hasGarden, boolean isPetFriendly) {
+		super(propertyId, address, status, owner, new ArrayList<Integer>());
 		this.numberOfBedrooms = numberOfBedrooms;
 		this.hasGarden = hasGarden;
 		this.isPetFriendly = isPetFriendly;

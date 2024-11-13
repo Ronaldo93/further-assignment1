@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Owner extends Person {
-	private ArrayList<Property> propertiesList;
-	private ArrayList<Host> hostList;
+	private ArrayList<Integer> propertiesList;
+	private ArrayList<Integer> hostList;
 
 	// Constructor
 	public Owner() {
-		propertiesList = new ArrayList<Property>();
-		hostList = new ArrayList<Host>();
+		propertiesList = new ArrayList<Integer>();
+		hostList = new ArrayList<Integer>();
 	}
 
-	public Owner(int id, String name, Date dateOfBirth, String number) {
+	public Owner(int id, java.lang.String name, Date dateOfBirth, java.lang.String number) {
 		super(id, name, dateOfBirth, number);
-		propertiesList = new ArrayList<Property>();
-		hostList = new ArrayList<Host>();
+		propertiesList = new ArrayList<Integer>();
+		hostList = new ArrayList<Integer>();
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class Owner extends Person {
 	 * @param property Property to be added
 	 */
 	public void addProperty(Property property) {
-		propertiesList.add(property);
+		propertiesList.add(property.getPropertyId());
 	}
 
 	/**
@@ -32,23 +32,23 @@ public class Owner extends Person {
 	 * @param host Host to be added
 	 */
 	public void addHost(Host host) {
-		hostList.add(host);
+		hostList.add(host.getId());
 	}
 
 	// getter and setter
-	public ArrayList<Property> getPropertiesList() {
+	public ArrayList<Integer> getPropertiesList() {
 		return propertiesList;
 	}
 
-	public void setPropertiesList(ArrayList<Property> propertiesList) {
+	public void setPropertiesList(ArrayList<Integer> propertiesList) {
 		this.propertiesList = propertiesList;
 	}
 
-	public ArrayList<Host> getHostList() {
+	public ArrayList<Integer> getHostList() {
 		return hostList;
 	}
 
-	public void setHostList(ArrayList<Host> hostList) {
+	public void setHostList(ArrayList<Integer> hostList) {
 		this.hostList = hostList;
 	}
 }

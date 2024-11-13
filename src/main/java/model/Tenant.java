@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Tenant extends Person {
-	private ArrayList<RentalAgreement> rentalAgreementList;
-	private ArrayList<Payment> transaction;
-	private ArrayList<Property> propertyList;
+	private ArrayList<Integer> rentalAgreementList;
+	private ArrayList<Integer> transaction;
+	private ArrayList<Integer> stringList;
 
 	public Tenant() {
 		super();
-		this.rentalAgreementList = new ArrayList<RentalAgreement>();
-		this.transaction = new ArrayList<Payment>();
-		this.propertyList = new ArrayList<Property>();
+		this.rentalAgreementList = new ArrayList<Integer>();
+		this.transaction = new ArrayList<Integer>();
+		this.stringList = new ArrayList<Integer>();
 	}
 
-	public Tenant(int id, String name, Date dateOfBirth, String number, ArrayList<RentalAgreement> rentalAgreementList, ArrayList<Payment> transaction, ArrayList<Property> propertyList) {
+	public Tenant(int id, java.lang.String name, Date dateOfBirth, java.lang.String number, ArrayList<Integer> rentalAgreementList, ArrayList<Integer> transaction, ArrayList<Integer> stringList) {
 		super(id, name, dateOfBirth, number);
 		this.rentalAgreementList = rentalAgreementList;
 		this.transaction = transaction;
-		this.propertyList = propertyList;
+		this.stringList = stringList;
 	}
 
 	/**
@@ -35,10 +35,10 @@ public class Tenant extends Person {
 
 		// create payment
 		payment.createPaymentDetail(amount, date, paymentMethod);
-		payment.createPaymentUser(this, host);
+		payment.createPaymentUser(this.getId(), host.getId());
 
 		// add payment to transaction
-		this.transaction.add(payment);
+		this.transaction.add(payment.getId());
 		// todo: add payment to host's transaction - set id
 		System.out.println("Payment successful...");
 	}
@@ -48,47 +48,47 @@ public class Tenant extends Person {
 	 * @param payment - the payment to be added
 	 */
 	public void addPayment(Payment payment) {
-		this.transaction.add(payment);
+		this.transaction.add(payment.getId());
 	}
 
 	/**
 	 * add rented property to tenant's property list
 	 * @param property - the property to be added
 	 */
-	public void rentAHouse(Property property) {
-		this.propertyList.add(property);
+	public void rentAHouse(int property) {
+		this.stringList.add(property);
 	}
 
 	/**
 	 * add rental agreement to tenant's rental agreement list
 	 * @param rentalAgreement - the rental agreement to be added
 	 */
-	public void addRentalAgreement(RentalAgreement rentalAgreement) {
+	public void addRentalAgreement(int rentalAgreement) {
 		this.rentalAgreementList.add(rentalAgreement);
 	}
 
 	// getters and setters
-	public ArrayList<RentalAgreement> getRentalAgreementList() {
+	public ArrayList<Integer> getRentalAgreementList() {
 		return rentalAgreementList;
 	}
 
-	public void setRentalAgreementList(ArrayList<RentalAgreement> rentalAgreementList) {
+	public void setRentalAgreementList(ArrayList<Integer> rentalAgreementList) {
 		this.rentalAgreementList = rentalAgreementList;
 	}
 
-	public ArrayList<Payment> getTransaction() {
+	public ArrayList<Integer> getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(ArrayList<Payment> transaction) {
+	public void setTransaction(ArrayList<Integer> transaction) {
 		this.transaction = transaction;
 	}
 
-	public ArrayList<Property> getPropertyList() {
-		return propertyList;
+	public ArrayList<Integer> getPropertyList() {
+		return stringList;
 	}
 
-	public void setPropertyList(ArrayList<Property> propertyList) {
-		this.propertyList = propertyList;
+	public void setPropertyList(ArrayList<Integer> stringList) {
+		this.stringList = stringList;
 	}
 }

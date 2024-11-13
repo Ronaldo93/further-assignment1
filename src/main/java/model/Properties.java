@@ -3,17 +3,17 @@ package model;
 import java.util.ArrayList;
 
 public class Properties {
-	private ArrayList<Property> propertyList;
+	private ArrayList<Property> stringList;
 
 	public Properties() {
-		this.propertyList = new ArrayList<Property>();
+		this.stringList = new ArrayList<Property>();
 	}
 
 	/**
 	 * Add property to property list
-	 * @param property - the property to be added
+	 * @param string - the property to be added
 	 */
-	public void addProperty(Property property) {
-		this.propertyList.add(property);
+	public void addProperty(Property string) {
+		this.stringList.add(string);
 	}
 }

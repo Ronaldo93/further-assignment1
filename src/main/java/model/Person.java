@@ -1,5 +1,7 @@
 package model;
 
+import com.google.gson.Gson;
+
 import java.util.Date;
 
 public class Person {
@@ -23,6 +25,17 @@ public class Person {
 		this.number = number;
 	}
 
+
+	/**
+	 * Serialize this object to a json string
+	 * @return json string
+	 */
+	public String serialize() {
+		// use gson to serialize this object
+		String jsonStr = new Gson().toJson(this);
+		System.out.println("[Person.serialize] serialized string: " + jsonStr);
+		return jsonStr;
+	}
 	// getter and setter
 
 	public int getId() {

@@ -4,11 +4,10 @@ import java.util.Date;
 
 public class Payment {
 	//  amount, date, and the payment method.
-
-
 	// user who made the payment and the user who received the payment
-	private Tenant buyer;
-	private Host seller;
+	private int id;
+	private int buyerId;
+	private int sellerId;
 
 	// set payment detail
 	private double amount;
@@ -17,9 +16,10 @@ public class Payment {
 
 	// Constructor
 	public Payment() {}
-	public Payment(Tenant buyer, Host seller, double amount, Date date, PaymentMethod paymentMethod) {
-		this.buyer = buyer;
-		this.seller = seller;
+	public Payment(int id, int buyerId, int sellerId, double amount, Date date, PaymentMethod paymentMethod) {
+		this.id = id;
+		this.buyerId = buyerId;
+		this.sellerId = sellerId;
 		this.amount = amount;
 		this.date = date;
 		this.paymentMethod = paymentMethod;
@@ -27,12 +27,12 @@ public class Payment {
 
 	/**
 	 * Set the buyer and seller of the payment
-	 * @param buyer Buyer of the payment
-	 * @param seller Seller of the payment
+	 * @param buyerId Buyer of the payment
+	 * @param sellerId Seller of the payment
 	 */
-	public void createPaymentUser(Tenant buyer, Host seller) {
-		setBuyer(buyer);
-		setSeller(seller);
+	public void createPaymentUser(int buyerId, int sellerId) {
+		setBuyerId(buyerId);
+		setSellerId(sellerId);
 	}
 
 	/**
@@ -49,20 +49,20 @@ public class Payment {
 
 
 	// getter and setter
-	public Tenant getBuyer() {
-		return buyer;
+	public int getBuyerId() {
+		return buyerId;
 	}
 
-	public void setBuyer(Tenant buyer) {
-		this.buyer = buyer;
+	public void setBuyerId(int buyerId) {
+		this.buyerId = buyerId;
 	}
 
-	public Host getSeller() {
-		return seller;
+	public int getSellerId() {
+		return sellerId;
 	}
 
-	public void setSeller(Host seller) {
-		this.seller = seller;
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
 
 	public double getAmount() {
@@ -83,6 +83,14 @@ public class Payment {
 
 	public PaymentMethod getPaymentMethod() {
 		return paymentMethod;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setPaymentMethod(PaymentMethod paymentMethod) {

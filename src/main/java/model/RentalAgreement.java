@@ -1,38 +1,39 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class RentalAgreement {
 	private int id;
 
 	// Persons who rent the property
-	private Tenant tenant;
-	private Tenant subTenant;
+	private int tenantId;
+	private ArrayList<Integer> subTenantIds;
 
 	// details about the contract
-	private String period;
+	private java.lang.String period;
 	private Date startDate;
 	private Date endDate;
 	private double rentFee;
 
 	// details about the property
-	private Property property;
+	private int propertyId;
 	private RentalStatus status;
 
 
 	// Constructor
 	public RentalAgreement() {}
 
-	public RentalAgreement(int id, Tenant tenant, Tenant subTenant, String period, Date startDate, Date endDate, double rentFee, Property property, RentalStatus status) {
-		setId(id);
-		setTenant(tenant);
-		setSubTenant(subTenant);
-		setPeriod(period);
-		setStartDate(startDate);
-		setEndDate(endDate);
-		setRentFee(rentFee);
-		setProperty(property);
-		setStatus(status);
+	public RentalAgreement(int id, Tenant tenant, java.lang.String period, Date startDate, Date endDate, double rentFee, int propertyId, RentalStatus status) {
+		this.id = id;
+		this.tenantId = tenant.getId();
+		this.subTenantIds = new ArrayList<Integer>();
+		this.period = period;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.rentFee = rentFee;
+		this.propertyId = propertyId;
+		this.status = status;
 	}
 
 	/**
@@ -40,9 +41,9 @@ public class RentalAgreement {
 	 * @param tenant Tenant who rent the property
 	 * @param subTenant Tenant who also renting the property
 	 */
-	public void setParticipation(Tenant tenant, Tenant subTenant) {
-		setTenant(tenant);
-		setSubTenant(subTenant);
+	public void setParticipation(int tenant, ArrayList<Integer> subTenant) {
+		setTenantId(tenant);
+		setSubTenantIds(subTenant);
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class RentalAgreement {
 	 * @param endDate - the end date of the rental agreement
 	 * @param rentFee - the rent fee of the rental agreement
 	 */
-	public void setDetails(String period, Date startDate, Date endDate, double rentFee) {
+	public void setDetails(java.lang.String period, Date startDate, Date endDate, double rentFee) {
 		setPeriod(period);
 		setStartDate(startDate);
 		setEndDate(endDate);
@@ -65,7 +66,7 @@ public class RentalAgreement {
 	 * @param status - the status of the rental agreement
 	 */
 	public void setPropertyDetails(Property property, RentalStatus status) {
-		setProperty(property);
+		setPropertyId(property.getPropertyId());
 		setStatus(status);
 	}
 
@@ -79,20 +80,20 @@ public class RentalAgreement {
 		this.id = id;
 	}
 
-	public Tenant getTenant() {
-		return tenant;
+	public int getTenantId() {
+		return tenantId;
 	}
 
-	public void setTenant(Tenant tenant) {
-		this.tenant = tenant;
+	public void setTenantId(int tenantId) {
+		this.tenantId = tenantId;
 	}
 
-	public Tenant getSubTenant() {
-		return subTenant;
+	public ArrayList<Integer> getSubTenantIds() {
+		return subTenantIds;
 	}
 
-	public void setSubTenant(Tenant subTenant) {
-		this.subTenant = subTenant;
+	public void setSubTenantIds(ArrayList<Integer> subTenantIds) {
+		this.subTenantIds = subTenantIds;
 	}
 
 	public String getPeriod() {
@@ -127,12 +128,12 @@ public class RentalAgreement {
 		this.rentFee = rentFee;
 	}
 
-	public Property getProperty() {
-		return property;
+	public int getPropertyId() {
+		return propertyId;
 	}
 
-	public void setProperty(Property property) {
-		this.property = property;
+	public void setPropertyId(int propertyId) {
+		this.propertyId = propertyId;
 	}
 
 	public RentalStatus getStatus() {
