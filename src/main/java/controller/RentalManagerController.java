@@ -73,11 +73,18 @@ public class RentalManagerController implements RentalManager {
 
 	}
 
-	// MARK: implement methods
+	// TODO: implement method
 	@Override
 	public void create() {
 		// display the form
-		// HashMap<String, String> result = RentalManagerView.createRentalContractView(persons.getTenantsList());
+		HashMap<String, String> result = RentalManagerView.createRentalContractView(persons.getTenantsList(), properties);
+
+		// create rental contract
+		rentalAgreements.createRentalAgreementFromForm(result);
+
+		// make a payment
+
+		// edit perons, and properties
 	}
 
 	@Override

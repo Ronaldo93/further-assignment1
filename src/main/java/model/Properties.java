@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Properties {
 	private ArrayList<CommercialProperty> commercialProperties;
 	private ArrayList<ResidentialProperty> residentialProperties;
+	private ArrayList<Property> properties;
 
 	public Properties() {
 		this.commercialProperties = new ArrayList<CommercialProperty>();
@@ -74,5 +75,13 @@ public class Properties {
 
 	public void setResidentialProperties(ArrayList<ResidentialProperty> residentialProperties) {
 		this.residentialProperties = residentialProperties;
+	}
+
+	public ArrayList<Property> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(ArrayList<Property> properties) {
+		this.properties = properties;
 	}
 }

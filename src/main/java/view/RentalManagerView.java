@@ -1,6 +1,7 @@
 package view;
 
 import controller.RentalManagerController;
+import model.Properties;
 import model.Property;
 import model.Tenant;
 import utils.InputUtils;
@@ -32,11 +33,10 @@ public class RentalManagerView {
 	/**
 	 * allows user creating a new rental agreements with existing user base
 	 * @param tenantList list of tenants
-	 * @param propertyList list of properties
-	 * @param rentalManagerController rental manager controller
+	 * @param properties properties model
 	 * @return a hashmap containing the rental agreement details
 	 */
-	public static HashMap<String, String> createRentalContractView(ArrayList<Tenant> tenantList, ArrayList<Property> propertyList, RentalManagerController rentalManagerController) {
+	public static HashMap<String, String> createRentalContractView(ArrayList<Tenant> tenantList, Properties properties) {
 		// Filtering arraylist
 		ArrayList<Integer> chosenTenantIds = new ArrayList<>();
 		ArrayList<Integer> chosenPropertyIds = new ArrayList<>();
@@ -67,6 +67,7 @@ public class RentalManagerView {
 
 		// ask for property
 		System.out.println("Below is the list of properties:");
+		ArrayList<Property> propertyList = properties.getProperties();
 		for (Property property : propertyList) {
 			System.out.println(property.getPropertyId() + ". " + property.getAddress());
 		}
