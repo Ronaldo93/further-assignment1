@@ -4,6 +4,10 @@ import model.Payments;
 import model.Persons;
 import model.Properties;
 import model.RentalAgreements;
+import utils.InputUtils;
+import view.RentalManagerView;
+
+import java.util.HashMap;
 
 public class RentalManagerController implements RentalManager {
 	// some models
@@ -13,6 +17,7 @@ public class RentalManagerController implements RentalManager {
 	private Payments payments;
 
 	// some views
+	// private RentalManagerView rentalManagerView;
 
 	// constructor
 	public RentalManagerController() {
@@ -23,10 +28,56 @@ public class RentalManagerController implements RentalManager {
 		payments = new Payments();
 	}
 
+	public void start() {
+
+		// get user input here
+		while (true) {
+			// some logic here
+			// show the welcome view
+			RentalManagerView.welcomeView();
+
+			// get user input
+			String input = InputUtils.getStringInput();
+
+			// navigate to the correct method
+			switch (input) {
+				case "1":
+					// create a new rental contract
+					create();
+					break;
+				case "2":
+					// update a rental contract
+					update();
+					break;
+				case "3":
+					// delete a rental contract
+					delete();
+					break;
+				case "4":
+					// view a rental contract
+					getOne();
+					break;
+				case "5":
+					// view all rental contracts
+					getAll();
+					break;
+				case "6":
+					// exit the program
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Invalid input");
+					break;
+			}
+		}
+
+	}
+
 	// MARK: implement methods
 	@Override
 	public void create() {
-		// some logic here
+		// display the form
+		// HashMap<String, String> result = RentalManagerView.createRentalContractView(persons.getTenantsList());
 	}
 
 	@Override
@@ -82,5 +133,11 @@ public class RentalManagerController implements RentalManager {
 		this.payments = payments;
 	}
 
-  
+	// public RentalManagerView getRentalManagerView() {
+	// 	return rentalManagerView;
+	// }
+	//
+	// public void setRentalManagerView(RentalManagerView rentalManagerView) {
+	// 	this.rentalManagerView = rentalManagerView;
+	// }
 }

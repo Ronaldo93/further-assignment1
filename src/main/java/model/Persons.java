@@ -30,4 +30,29 @@ public class Persons {
 		this.personsList = personsList;
 	}
 
+	// getters and setters
+
+	public ArrayList<Tenant> getTenantsList() {
+		return tenantsList;
+	}
+
+	public void setTenantsList(ArrayList<Tenant> tenantsList) {
+		this.tenantsList = tenantsList;
+	}
+
+	public ArrayList<Host> getHostsList() {
+		return hostsList;
+	}
+
+	public void setHostsList(ArrayList<Host> hostsList) {
+		this.hostsList = hostsList;
+	}
+
+	public ArrayList<Owner> getOwnersList() {
+		return ownersList;
+	}
+
+	public void setOwnersList(ArrayList<Owner> ownersList) {
+		this.ownersList = ownersList;
+	}
 }
